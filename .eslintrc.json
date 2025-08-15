@@ -1,0 +1,129 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "check-file",
+    "unused-imports",
+    "import",
+    "i18next"
+  ],
+  "rules": {
+    "i18next/no-literal-string": [
+      "error",
+      {
+        "markupOnly": true,
+        "ignoreAttribute": ["data-testid", "aria-label", "role"]
+      }
+    ],
+    "no-redeclare": "off",
+    "@typescript-eslint/no-redeclare": "warn",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "warn",
+    "react/react-in-jsx-scope": "off",
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": ["arrow-function"],
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "check-file/filename-naming-convention": [
+      "error",
+      {
+        "*.{js,ts,json}": "CAMEL_CASE",
+        "*.{tsx}": "PASCAL_CASE",
+        "**/Tests/*.{js,jsx,ts,tsx}": "*.test",
+        "tests/e2e/*.{js,jsx,ts,tsx}": "*-test",
+        "tests/e2e/**/*.{js,jsx,ts,tsx}": "*-test"
+      }
+    ],
+    "check-file/folder-match-with-fex": ["error", { "*.test.{js,jsx,ts,tsx}": "src/**/Tests/" }],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "lodash",
+            "message": "Import [module] from lodash/[module] instead"
+          }
+        ]
+      }
+    ],
+    "unused-imports/no-unused-imports": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type",
+          "unknown"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "**/*.module.scss",
+            "group": "unknown",
+            "position": "after"
+          },
+          {
+            "pattern": "**/*.module.css",
+            "group": "unknown",
+            "position": "after"
+          },
+          {
+            "pattern": "**/*.{css,scss}",
+            "group": "external",
+            "position": "after",
+            "patternOptions": {
+              "matchBase": true
+            }
+          }
+        ],
+        "newlines-between": "always"
+      }
+    ]
+  },
+  "ignorePatterns": [
+    "**/*.css",
+    "**/*.scss",
+    "**/*.test.tsx.snap",
+    "**/*.png",
+    "**/*.jpg",
+    "**/*.jpeg",
+    "**/*.gif",
+    "**/*.webp",
+    "**/*.svg"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {
+        "project": "./tsconfig.json"
+      }
+    }
+  }
+}
