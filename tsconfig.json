@@ -20,7 +20,9 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@Shared/*": ["./src/Shared/*"]
+      "@pages/*": ["src/pages/*"],
+      "@core/*": ["src/core/*"],
+      "@shared/*": ["src/shared/*"]
     },
     "typeRoots": ["./node_modules/@types", "./src/react-app-env"]
   },

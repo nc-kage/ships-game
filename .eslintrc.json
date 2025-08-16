@@ -24,17 +24,11 @@
     "i18next"
   ],
   "rules": {
-    "i18next/no-literal-string": [
-      "error",
-      {
-        "markupOnly": true,
-        "ignoreAttribute": ["data-testid", "aria-label", "role"]
-      }
-    ],
     "no-redeclare": "off",
     "@typescript-eslint/no-redeclare": "warn",
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": "warn",
+    "@typescript-eslint/no-non-null-assertion": "warn",
     "react/react-in-jsx-scope": "off",
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "react/function-component-definition": [

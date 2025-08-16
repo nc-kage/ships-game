@@ -8,25 +8,25 @@ const { pluginReact } = require('@rsbuild/plugin-react');
 
 module.exports = defineConfig({
   html: {
-    template: './public/index.html'
+    template: './public/index.html',
   },
   tools: {
     htmlPlugin: (options) => {
       options.title = 'Game';
-    }
+    },
   },
   source: {
     entry: {
-      index: './src/index.tsx'
-    }
+      index: './src/index.tsx',
+    },
   },
   output: {
     distPath: {
-      root: 'build'
+      root: 'build',
     },
     cssModules: {
-      localIdentName: '[hash:8]_[local]'
-    }
+      localIdentName: '[hash:8]_[local]',
+    },
   },
   plugins: [
     pluginSass(),
@@ -39,14 +39,14 @@ module.exports = defineConfig({
               name: 'preset-default',
               params: {
                 overrides: {
-                  removeViewBox: false
-                }
-              }
-            }
-          ]
-        }
-      }
+                  removeViewBox: false,
+                },
+              },
+            },
+          ],
+        },
+      },
     }),
-    pluginReact()
-  ]
+    pluginReact(),
+  ],
 });
