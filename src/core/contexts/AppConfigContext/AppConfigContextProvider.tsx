@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, useCallback, useEffect, useMemo, useState } from 'react';
+import { FC, PropsWithChildren, useCallback, useEffect, useState } from 'react';
 
 import { getAppConfig } from '@core/api/appConfig';
 import { ErrorName } from '@shared/types/error';
@@ -30,10 +30,8 @@ export const AppConfigContextProvider: FC<PropsWithChildren> = ({ children }) =>
     fetchConfig();
   }, [fetchConfig]);
 
-  const value = useMemo(() => ({ appConfig, isLoading, error }), [appConfig, isLoading, error]);
-
   return (
-    <AppConfigContext.Provider value={value}>
+    <AppConfigContext.Provider value={{ appConfig, isLoading, error }}>
       <Fallback onRefresh={fetchConfig} error={error} isLoading={isLoading}>
         {children}
       </Fallback>
