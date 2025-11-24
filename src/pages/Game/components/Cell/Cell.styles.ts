@@ -13,32 +13,6 @@ export const Container = styled.div`
     background-color: ${grey[200]};
     cursor: pointer;
   }
-
-  &[data-state='${CellState.Hit}']::after,
-  &[data-state='${CellState.Miss}']::after {
-    ${ABSOLUTE_FULL_CONTENT}
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  &[data-state='${CellState.Hit}']::after {
-    background-image: url('/media/hit.png');
-  }
-
-  &[data-state='${CellState.Miss}']::after {
-    background-image: url('/media/miss.png');
-  }
-
-  @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    &[data-state='${CellState.Hit}']::after {
-      background-image: url('/media/hit_small.png');
-    }
-
-    &[data-state='${CellState.Miss}']::after {
-      background-image: url('/media/miss_small.png');
-    }
-  }
 `;
 
 export const CellButton = styled(Button)`
@@ -49,4 +23,12 @@ export const CellButton = styled(Button)`
   background-color: transparent;
   overflow: hidden;
   min-width: 0;
+
+  &[data-state='${CellState.Hit}'] {
+    color: red;
+  }
+
+  &[data-state='${CellState.Miss}'] {
+    color: grey;
+  }
 `;

@@ -23,8 +23,11 @@ export const Cell: FC<CellPropsType> = ({ position }) => {
   }, [position, isOpponentShipCell]);
 
   return (
-    <Styled.Container data-posiotion={position} data-testid={`cell-${position}`} data-state={state}>
-      <Styled.CellButton onClick={handleClick} />
+    <Styled.Container data-posiotion={position} data-testid={`cell-${position}`}>
+      <Styled.CellButton onClick={handleClick} data-state={state}>
+        {state === CellState.Hit && 'X'}
+        {state === CellState.Miss && 'O'}
+      </Styled.CellButton>
     </Styled.Container>
   );
 };
